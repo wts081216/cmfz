@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.wts.dao.BannerDao">
+    <!--  根据用户注册时间，性别 进行查询 -->
+    <select id="queryBannerBytime" resultType="com.baizhi.wts.entity.Banner" >
+        select * from banner where status='1'  order by create_date desc limit 0,5
+    </select>
+
+
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.wts.dao.UserDao">
+    <!--  根据用户注册时间，性别 进行查询 -->
+    <select id="queryUserByTime" resultType="Integer" >
+        select count(*) from user where sex=#{sex} and DATE_SUB(NOW(),INTERVAL #{day} day) &lt; rigest_date
+    </select>
+
+    <!-- 根据地区进行查询 -->
+    <select id="queryByLocation" resultType="com.baizhi.wts.entity.MapDto">
+        select location 'name',count(location) 'value' from user where sex=#{sex} GROUP BY location
+    </select>
+    <!-- 随机查询5个 -->
+    <select id="queryRandom" resultType="com.baizhi.wts.entity.User">
+       select * from user where id != #{uid} order by rand() limit 5
+    </select>
+</mapper>

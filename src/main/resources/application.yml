@@ -1,0 +1,36 @@
+#
+server:
+  port: 8989
+  servlet:
+    context-path: /cmfz
+    jsp:
+      init-parameters:
+        development: true
+#
+spring:
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+  #
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cmfz?characterEncoding=UTF-8
+    username: root
+    password: 123
+  servlet:
+    multipart:
+      max-file-size: 60MB
+      max-request-size: 60MB
+# mybatis
+mybatis:
+  type-aliases-package: com.baizhi.wts.entity
+  mapper-locations: classpath:com/baizhi/wts/mapper/*Mapper.xml
+#
+logging:
+  level:
+    root: error
+    com.baizhi.wts.dao: debug
+    com.baizhi.wts.service: debug
+    com.baizhi.wts.controller: debug
