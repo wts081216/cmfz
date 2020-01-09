@@ -6,6 +6,7 @@ import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
 
+//@CacheNamespace(implementation = MyBatisCache.class)
 public interface BannerDao extends Mapper<Banner>, DeleteByIdListMapper<Banner,String> {
     List<Banner> queryBannerBytime();
 }

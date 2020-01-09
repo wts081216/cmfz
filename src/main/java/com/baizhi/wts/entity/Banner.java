@@ -2,18 +2,18 @@ package com.baizhi.wts.entity;
 
 import com.alibaba.excel.annotation.ExcelProperty;
 import com.alibaba.fastjson.annotation.JSONField;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Banner {
+public class Banner implements Serializable {
   @Id
   @ExcelProperty(value = "id")
   private String id;

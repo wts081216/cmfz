@@ -1,9 +1,9 @@
 package com.baizhi.wts.service;
 
+import com.baizhi.wts.annotation.AddOrSelectAnnotation;
 import com.baizhi.wts.annotation.LogAnnotation;
 import com.baizhi.wts.dao.BannerDao;
 import com.baizhi.wts.dao.BannerPageDto;
-import com.baizhi.wts.entity.Admin;
 import com.baizhi.wts.entity.Banner;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +11,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 @Service
 @Transactional
@@ -43,6 +41,7 @@ public class BannerServiceImpl implements BannerService {
    //分页查
     @Override
     @Transactional(propagation = Propagation.SUPPORTS,readOnly = true)
+    @AddOrSelectAnnotation
     public BannerPageDto quryBypage(Integer pageSize,Integer curPage) {
         BannerPageDto dto = new BannerPageDto();
         // 调用dao实现每个步骤
